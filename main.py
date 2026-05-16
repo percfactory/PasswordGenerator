@@ -37,16 +37,25 @@ def generate_password():
  label_length = tk.Label(window, text="Password Length:", font=("Helvetica"), 12, bbg="#f0f0f0") 
  label_length.pack(pady=5)
  
-  # Range slider for the length of the password
-password_length_slider = tk.Scale(window, from_=8, to=20, orient="horizontal", length=300, font=("Helvetica", 12), sliderlength=20, showvalue=1, bg="#f0f0f0", troughcolor="#4CAF50", highlightthickness=0)
+   # Range slider for the length of the password
+ password_length_slider = tk.Scale(window, from_=8, to=20, orient="horizontal", length=300, font=("Helvetica", 12), sliderlength=20, showvalue=1, bg="#f0f0f0", troughcolor="#4CAF50", highlightthickness=0)
 
-password_length_slider.set(12)
-password_length_slider.pack(pady=10)
+ password_length_slider.set(12)
+ password_length_slider.pack(pady=10)
 
 # Define boolean variables for states of the checkboxes
-var_numbers = tk.BooleanVar()
-var_symbols = tk.BooleanVar()
+ var_numbers = tk.BooleanVar()
+ var_symbols = tk.BooleanVar()
 
+# Adding check buttons using ttk
+ check_symbols = ttk.Checkbutton(window, text="Include Symbols", variable=var_symbols, style="TCheckbutton")
+ check_symbols.pack(pady=5)
 
+ check_numbers = ttk.Checkbutton(window, text="Include Numbers", variable=var_symbols, style="TCheckbutton")
+ check_numbers.pack(pady=5)
+ 
+ # Function to create rounded button with tk.Button
+ def create_rounded_button
 
+ 
 
