@@ -34,7 +34,7 @@ def generate_password():
  title_label.pack(pady=20)
  
  # Label and slider for the length of the password
- label_length = tk.Label(window, text="Password Length:", font=("Helvetica"), 12, bbg="#f0f0f0") 
+ label_length = tk.Label(window, text="Password Length:", font=("Helvetica"), 12, bg="#f0f0f0") 
  label_length.pack(pady=5)
  
    # Range slider for the length of the password
@@ -54,8 +54,28 @@ def generate_password():
  check_numbers = ttk.Checkbutton(window, text="Include Numbers", variable=var_symbols, style="TCheckbutton")
  check_numbers.pack(pady=5)
  
- # Function to create rounded button with tk.Button
- def create_rounded_button
+ # Function to create rounded button with tk.Button and custom styling
+ def create_rounded_button(parent,text,command):
+    button = tk.Button(parent, text=text, command=command, font=("Helvetica", 12, bold), bg="#4CAF50", fg="white", relief="flat", height=2, width=20, bd=0)
+    button.config(borderwidth=0, highlightthickness=0)
+    button.pack(pady=20)
+    return button
 
+ # Using the function to create a rounded button
+ create_rounded_button(window, "Generate Password", generate_password)
  
-
+ # Entry field to display the generated password
+ label_password = tk.Label(window, text="Generated Password", font=("Helvetica", 12), bg="#f0f0f0")
+ label_password.pack(pady=5)
+ 
+ # Entry field for the password so that the user can copy it 
+ entry_password = tk.Entry(window, font=("Helvetica", 12), width=30, bd=2, relief="solid" fg="#333333")
+ entry_password.pack(pady=10)
+ 
+ # Styling the check buttons using ttk theme
+ style= ttk.Style()
+ style.configure("TCheckbutton", font=("Helvetica", 12), background="#f0f0f0", foreground="#333333", paddding=10)
+ 
+ # Making an event loop so that the application keeps running
+ window.mainloop()
+ 
